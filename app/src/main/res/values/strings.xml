@@ -1,6 +1,17 @@
 <resources>
-    <string name="app_name">LampApp</string>
-    <string name="hello">Hello</string>
+    <string name="app_name" translatable="false">LampApp</string>
     <string name="button">Нажми меня</string>
-    <string name="bye">Bye</string>
+    <string name="bye">Пока</string>
+    <string name="game_activity">Играть</string>
+    <string name="second_view">Второй экранчик</string>
+    <string name="label_1">Пункт 1</string>
+    <string name="label_2">Пункт 2</string>
+    <string name="label_3">Пункт 3</string>
+    <string name="name_of_game">Миниигра "Погаси лампочку"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Rules_title">Правила игры</string>
+    <string name="Rules_text">Надо нажимать на лампочки</string>
+    <string name="Game">Игра</string>
+    <string name="Rules">Правила</string>
 </resources>
