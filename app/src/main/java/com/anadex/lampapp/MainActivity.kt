@@ -1,54 +1,49 @@
 package com.anadex.lampapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.widget.Button
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.androidgamesdk.GameActivity
 
-//Танцевать я не умею
-//И стихов я не пишу,
-//Самолётики не клею,
-//За футболом не слежу.
-
-//Не умею петь я басом
-//И из глины не леплю,
-//НО ЗАТО — ОДИН ИЗ КЛАССА —
-//Я УШАМИ ШЕВЕЛЮ!!!
-
-const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var gameActivityButton: Button
+    lateinit var authorRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d(TAG, "Танцевать я не умею")
-    }
+        val authorList: List<Author> = listOf(
 
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "И стихов я не пишу,")
-    }
+            Author(R.drawable.me, "Анастасия", "Разработчик"),
+            Author(R.drawable.noch, "Noch", "Художник")
+        )
 
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "Самолётики не клею,")
-    }
+        authorRecyclerView = findViewById(R.id.author_recycler_view)
+        authorRecyclerView.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        authorRecyclerView.adapter = AuthorAdapter(authorList)
+        authorRecyclerView.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "За футболом не слежу.")
-    }
 
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG, "Не умею петь я басом")
-    }
+        gameActivityButton = findViewById(R.id.game_activity_button)
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "И из глины не леплю, \n НО ЗАТО — ОДИН ИЗ КЛАССА — \n Я УШАМИ ШЕВЕЛЮ!!!")
-    }
+        gameActivityButton.setOnClickListener {
+            val gameActivityIntent: Intent = Intent(this, GameActivity2::class.java)
 
+            startActivity(gameActivityIntent)
+        }
+    }
 
 }
